@@ -80,7 +80,7 @@ export default function App() {
   const dateLabels = Object.keys(byDate).sort();
   const dateCounts = dateLabels.map(d => byDate[d]);
   const maxDateCount = Math.max(...dateCounts, 1);
-  const funnelMax = counts["Applied"] || 1;
+  const funnelMax = Math.max(...PIPELINE_STAGES.map(st => counts[st] || 0), 1);
 
   const s = { bg: "#0e0e0f", surface: "#17171a", surface2: "#1e1e22", border: "rgba(255,255,255,0.07)", border2: "rgba(255,255,255,0.12)", text: "#f0ede8", muted: "#7a7875", accent: "#c9f564" };
 
